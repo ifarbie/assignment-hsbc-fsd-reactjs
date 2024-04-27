@@ -10,7 +10,7 @@ const App: FC = () => {
     return (
         <Box maxW={"1366px"} mx={"auto"} textColor={"white"}>
             <Header />
-            <Flex gap={10} px={9} direction={"column"} justifyContent={"center"} maxW={"1000px"} mx={"auto"}>
+            <Flex gap={10} px={9} direction={"column"} justifyContent={"center"} maxW={"1000px"} mx={"auto"} pb={10}>
                 {/* POST FORM */}
                 <PostForm />
                 {/* POST CONTAINER */}
