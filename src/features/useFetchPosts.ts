@@ -1,7 +1,6 @@
 import usePostStore, { Post } from "../lib/zustand/usePostStore";
 import axiosInstance from "../lib/axios/axios";
 import { useQuery } from "react-query";
-import { useEffect } from "react";
 
 const useFetchPosts = () => {
     const { setPosts, posts } = usePostStore();
@@ -10,11 +9,10 @@ const useFetchPosts = () => {
         queryFn: () => {
             return axiosInstance.get("/posts?_limit=5").then((res) => res.data);
         },
+        onSuccess: (data: Post[]) => {
+            if (data) setPosts(data)
+        }
     });
-
-    useEffect(() => {
-        if (results.data) setPosts(results.data);
-    }, [results.data, setPosts]);
     
     return { ...results, postsList: posts };
 };
