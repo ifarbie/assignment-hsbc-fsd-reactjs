@@ -8,6 +8,7 @@ const PostForm: FC = () => {
     const { setBody, setTitle, setPosts, posts, title, body } = usePostStore();
     const { mutate, isLoading } = useCreatePost();
     const toast = useToast();
+    
     return (
         <form className="w-full"
             onSubmit={(e) => {

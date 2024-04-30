@@ -1,4 +1,4 @@
-import { Box, SimpleGrid, Spinner } from "@chakra-ui/react";
+import { Box, SimpleGrid, Spinner, Text } from "@chakra-ui/react";
 import { Post } from "../lib/zustand/usePostStore";
 import PostCard from "./PostCard";
 import { FC } from "react";
@@ -16,7 +16,9 @@ const PostContainer: FC<{ isLoading: boolean; postsList: Post[] }> = ({ isLoadin
                             <PostCard key={post.id} id={post.id} title={post.title} body={post.body} />
                         ))}
                     </>
-                ) : null}
+                ) : (
+                    <Text textAlign={"center"}>No posts found</Text>
+                )}
             </SimpleGrid>
         </Box>
     );

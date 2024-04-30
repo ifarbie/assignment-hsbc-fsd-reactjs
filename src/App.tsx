@@ -7,6 +7,7 @@ import PostContainer from "./components/PostContainer";
 
 const App: FC = () => {
     const { postsList, isLoading } = useFetchPosts();
+    
     return (
         <Box maxW={"1366px"} mx={"auto"} textColor={"white"}>
             <Header />
