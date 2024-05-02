@@ -47,14 +47,15 @@ const EditPostIcon: FC<{ title: string, body: string, id: number }> = ({ title, 
                                 userId: 1,
                             };
                             editMutate(editDatas, {
-                                onError(error: unknown, data: Post) {
-                                    if (error instanceof Error) {
-                                        console.log(error.message);
-                                    } else {
-                                        console.log("An unknown error occurred");
-                                    }
+                                onError(_, data: Post) {
                                     updateOnePost(data.id, data);
                                     editDisclosure.onClose();
+                                    toast({
+                                        title: "Post Edited!",
+                                        status: "info",
+                                        position: "top-right",
+                                        isClosable: true,
+                                    });
                                 },
                                 onSuccess: ({ data }) => {
                                     updateOnePost(data.id, data);
